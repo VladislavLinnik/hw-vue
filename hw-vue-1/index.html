@@ -27,9 +27,71 @@
 </head>
 <body>
 
+<div class="container">
 	<div id="app">
+		<form class="form">
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input id="email" type="email">
+			</div>
+			<div class="form-group">
+				<label for="first_name">First Name</label>
+				<input id="first_name" type="text" v-model="firstName">
+			</div>
+			<div class="form-group">
+				<label for="last_name">Last Name</label>
+				<input id="lasr_name" type="text" v-model="lastName">
+			</div>
+			<div class="form-group">
+				<label for="phone">Phone</label>
+				<input id="phone" type="number">
+			</div>
+			<div class="form-guests">
+				<span>Guests</span>
+				<button class="guests-btn" type="button">+</button>
+				<ul class="guests-list">
+					<li class="guests-item">
+						<div class="form-group">
+							<label>Guests 1</label>
+							<input type="text">
+						</div>
+					</li>
+				</ul>
+			</div>
+			<hr />
+			<button class="form-submit" type="submit" @click.prevent="form_sended = !form_sended;">Send Data</button>
+		</form>
 		
+		<div class="result" v-if="form_sended">
+			<h1>All done!</h1>
+			<hr />
+			<table>
+				<tr>
+					<td>Email</td>
+					<td>1@1.ru</td>
+				</tr>
+				<tr>
+					<td>Name</td>
+					<td>{{ firstName + ' ' + lastName }}</td>
+				</tr>
+				<tr>
+					<td>Phone</td>
+					<td>+380997793890</td>
+				</tr>
+				<tr>
+					<td>Guests</td>
+					<td>
+						<ul class="list">
+							<li class="item">Guest 1</li>
+							<li class="item">Guest 2</li>
+							<li class="item">Guest 3</li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
+</div>
 
 
 
