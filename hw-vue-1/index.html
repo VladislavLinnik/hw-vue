@@ -29,37 +29,37 @@
 
 <div class="container">
 	<div id="app">
-		<form class="form">
+		<form class="form" v-if="hideForm">
 			<div class="form-group">
 				<label for="email">Email</label>
-				<input id="email" type="email">
+				<input id="email" type="email" v-model="email">
 			</div>
 			<div class="form-group">
 				<label for="first_name">First Name</label>
-				<input id="first_name" type="text" v-model="firstName">
+				<input id="first_name" type="text" v-model="first_name">
 			</div>
 			<div class="form-group">
 				<label for="last_name">Last Name</label>
-				<input id="lasr_name" type="text" v-model="lastName">
+				<input id="last_name" type="text" v-model="last_name">
 			</div>
 			<div class="form-group">
 				<label for="phone">Phone</label>
-				<input id="phone" type="number">
+				<input id="phone" type="number" v-model="phone">
 			</div>
 			<div class="form-guests">
 				<span>Guests</span>
-				<button class="guests-btn" type="button">+</button>
+				<button class="guests-btn" @click="addUser" type="button">+</button>
 				<ul class="guests-list">
-					<li class="guests-item">
+					<li class="guests-item" v-for="(user, index) in users">
 						<div class="form-group">
-							<label>Guests 1</label>
-							<input type="text">
+							<label>Guests {{index + 1}}</label>
+							<input class="input" type="text">
 						</div>
 					</li>
 				</ul>
 			</div>
 			<hr />
-			<button class="form-submit" type="submit" @click.prevent="form_sended = !form_sended;">Send Data</button>
+			<button class="form-submit" type="submit" @click.prevent="send">Send Data</button>
 		</form>
 		
 		<div class="result" v-if="form_sended">
@@ -68,23 +68,21 @@
 			<table>
 				<tr>
 					<td>Email</td>
-					<td>1@1.ru</td>
+					<td>{{ email }}</td>
 				</tr>
 				<tr>
 					<td>Name</td>
-					<td>{{ firstName + ' ' + lastName }}</td>
+					<td>{{ first_name + ' ' + last_name }}</td>
 				</tr>
 				<tr>
 					<td>Phone</td>
-					<td>+380997793890</td>
+					<td>{{ phone }}</td>
 				</tr>
 				<tr>
 					<td>Guests</td>
 					<td>
 						<ul class="list">
-							<li class="item">Guest 1</li>
-							<li class="item">Guest 2</li>
-							<li class="item">Guest 3</li>
+							<li class="item" v-for="test in tests">{{ test }}</li>
 						</ul>
 					</td>
 				</tr>

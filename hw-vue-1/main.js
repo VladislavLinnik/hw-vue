@@ -1,14 +1,31 @@
 var app = new Vue({
     el: '#app',
     data: {
-        // email: ,
-        // phone: ,
-        form_sended: false
+        form_sended: false,
+        email: '',
+        first_name: '',
+        last_name: '',
+        phone: '',
+        hideForm: true,
+        users: [],
+		tests: []
     },
-    // methods: {
-        
-    // },
-    // computed: {
+    methods: {
+        addUser(){
+			this.users.push(Math.random());
+		},
+		showGuests(){
+			var inputs = document.querySelectorAll('.input');
+			for (var i = 0; i < inputs.length; i++){
+				this.tests.push(inputs[i].value)
+			}
+        },
+        send(){
+            this.form_sended = !this.form_sended;
+            this.hideForm = !this.hideForm;
+        }
+    },
+    computed: {
 
-    // }
+    }
 });
