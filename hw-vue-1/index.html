@@ -48,17 +48,17 @@
 			</div>
 			<div class="form-guests">
 				<span>Guests</span>
-				<button class="guests-btn" @click="addUser" type="button">+</button>
+				<button class="guests-btn" @click="addUser()" type="button">+</button>
+				<hr />
 				<ul class="guests-list">
 					<li class="guests-item" v-for="(user, index) in users">
-						<div class="form-group">
+						<div class="form-group" @dblclick="deleteGuest(index)">
 							<label>Guests {{index + 1}}</label>
 							<input class="input" type="text">
 						</div>
 					</li>
 				</ul>
 			</div>
-			<hr />
 			<button class="form-submit" type="submit" @click.prevent="send">Send Data</button>
 		</form>
 		

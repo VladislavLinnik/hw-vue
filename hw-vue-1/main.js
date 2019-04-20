@@ -14,18 +14,16 @@ var app = new Vue({
         addUser(){
 			this.users.push(Math.random());
 		},
-		showGuests(){
-			var inputs = document.querySelectorAll('.input');
+        send(){
+            this.form_sended = !this.form_sended;
+            this.hideForm = !this.hideForm;
+            var inputs = document.querySelectorAll('.input');
 			for (var i = 0; i < inputs.length; i++){
 				this.tests.push(inputs[i].value)
 			}
         },
-        send(){
-            this.form_sended = !this.form_sended;
-            this.hideForm = !this.hideForm;
+        deleteGuest(index){
+            this.users.splice(index, 1);
         }
-    },
-    computed: {
-
     }
 });
