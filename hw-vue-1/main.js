@@ -23,6 +23,7 @@ var app = new Vue({
 			}
         },
         deleteGuest(index){
+            console.log(index);
             this.users.splice(index, 1);
         }
     }
