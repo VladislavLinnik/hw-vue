@@ -52,14 +52,14 @@
 				<hr />
 				<ul class="guests-list">
 					<li class="guests-item" v-for="(user, index) in users" :key="user">
-						<div class="form-group" @dblclick="deleteGuest(index)">
+						<div class="form-group" @dblclick="deleteGuest()">
 							<label>Guests {{index + 1}}</label>
 							<input class="input" type="text">
 						</div>
 					</li>
 				</ul>
 			</div>
-			<button class="form-submit" type="submit" @click.prevent="send">Send Data</button>
+			<button class="form-submit" type="submit" @click.prevent="sendForm">Send Data</button>
 		</form>
 		
 		<div class="result" v-if="form_sended">
@@ -82,7 +82,7 @@
 					<td>Guests</td>
 					<td>
 						<ul class="list">
-							<li class="item" v-for="test in tests">{{ test }}</li>
+							<li class="item" v-for="guest in guests">{{ guest }}</li>
 						</ul>
 					</td>
 				</tr>

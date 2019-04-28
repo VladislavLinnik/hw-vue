@@ -8,13 +8,13 @@ var app = new Vue({
         phone: '',
         hideForm: true,
         users: [],
-		tests: []
+		guests: []
     },
     methods: {
         addUser(){
 			this.users.push(Math.random());
 		},
-        send(){
+        sendForm(){
             var email = document.querySelector('#email').value,
                 first_name = document.querySelector('#first_name').value,
                 last_name = document.querySelector('#last_name').value,
@@ -26,7 +26,7 @@ var app = new Vue({
                 
                 var inputs = document.querySelectorAll('.input');
                 for (var i = 0; i < inputs.length; i++){
-                    this.tests.push(inputs[i].value)
+                    this.guests.push(inputs[i].value)
                 }
 			} else {
                 alert('Please, fill in all fields!');
