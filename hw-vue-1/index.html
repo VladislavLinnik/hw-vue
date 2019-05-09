@@ -52,7 +52,7 @@
 				<hr />
 				<ul class="guests-list">
 					<li class="guests-item" v-for="(user, index) in users" :key="user">
-						<div class="form-group" @dblclick="deleteGuest()">
+						<div class="form-group" @dblclick="deleteGuest(index)">
 							<label>Guests {{index + 1}}</label>
 							<input class="input" type="text">
 						</div>
