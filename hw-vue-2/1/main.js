@@ -1,6 +1,7 @@
 var app = new Vue({
     el: '#app',
     data: {
+        progress: '20%',
         info: {
             name: {
                 name: 'Name',
